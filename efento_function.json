@@ -6,7 +6,6 @@ var measurement_record = [];
 var channels_record = [];
 var changeAt = []
 var measurementPeriod = msg.payload.measurement_period_base * msg.payload.measurement_period_factor;
-var site = msg.site
 var transfer_reason = msg.payload.transfer_reason
 var channelNumberForAcc = 0
 
@@ -97,24 +96,18 @@ for (var param of msg.payload.channels) {
                 }
                 var timeDifference = measurementPeriod * index
                 var measured_at = param.timestamp + timeDifference
-                var midnight = ((new Date(new Date().setHours(0, 0, 0, 0))).valueOf()) / 1000
                 var type = param.type.replace("MEASUREMENT_TYPE_", "").replace("_MINOR", "") + "_" + channelNumberForAcc
-                //only using PULSE Channel 1
-                if (type == "PULSE_CNT_ACC_1") {
-                    if (value != 0 || measured_at === midnight) {
-                        channels_record.push(
-                            {
-                                measured_at,
-                                serial_number: Buffer.from(msg.payload.serial_num, 'base64').toString('hex').toUpperCase(),
-                                battery_ok: msg.payload.battery_status,
-                                transfer_reason,
-                                metadata,
-                                type,
-                                value,
-                            }
-                        );
+                channels_record.push(
+                    {
+                        measured_at,
+                        serial_number: Buffer.from(msg.payload.serial_num, 'base64').toString('hex').toUpperCase(),
+                        battery_ok: msg.payload.battery_status,
+                        transfer_reason,
+                        metadata,
+                        type,
+                        value,
                     }
-                }
+                );   
             }
         }
         else if (["MEASUREMENT_TYPE_VOLTAGE", "MEASUREMENT_TYPE_CURRENT"].indexOf(param.type) >= 0) {
@@ -138,7 +131,6 @@ for (var param of msg.payload.channels) {
                         serial_number: Buffer.from(msg.payload.serial_num, 'base64').toString('hex').toUpperCase(),
                         battery_ok: msg.payload.battery_status,
                         transfer_reason,
-                        metadata,
                         type,
                         value,
                     }
@@ -165,6 +157,7 @@ for (var param of msg.payload.channels) {
                         measured_at: param.timestamp + timeDifference,
                         serial_number: Buffer.from(msg.payload.serial_num, 'base64').toString('hex').toUpperCase(),
                         battery_ok: msg.payload.battery_status,
+                        transfer_reason,
                         type: param.type.replace("MEASUREMENT_TYPE_", ""),
                         value,
                     }
@@ -184,13 +177,11 @@ let channels_records = channels_record.reduce((acc, elem) => {
 
 if (Object.keys(channels_records).length) {
     var pulse_payload = {
-        site,
         payload: channels_records
     }
 }
 if (Object.keys(measurement_record).length) {
     var mearurement_payload = {
-        site,
         payload: measurement_record
     }
 }
