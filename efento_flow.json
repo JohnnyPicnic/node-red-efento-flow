@@ -6,11 +6,11 @@
         "name": "ProtoConfig",
         "protofile": "7c162e491502f623",
         "protoType": "ProtoConfig",
-        "x": 590,
-        "y": 460,
+        "x": 550,
+        "y": 420,
         "wires": [
             [
-                "76f0592ae0ff82e9"
+                "348aadcbdfd34f82"
             ]
         ]
     },
@@ -27,36 +27,9 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1080,
-        "y": 460,
+        "x": 710,
+        "y": 420,
         "wires": []
-    },
-    {
-        "id": "b1b82ee208ad7765",
-        "type": "change",
-        "z": "1fe2b7c148e14405",
-        "name": "Payload",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "req.payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 460,
-        "wires": [
-            [
-                "dfb77f20966464d0"
-            ]
-        ]
     },
     {
         "id": "7a5803c9e7ef9714",
@@ -69,26 +42,8 @@
         "x": 210,
         "y": 740,
         "wires": [
-            [
-                "2a2c1c5e01bf9668"
-            ]
+            []
         ]
-    },
-    {
-        "id": "2a2c1c5e01bf9668",
-        "type": "debug",
-        "z": "1fe2b7c148e14405",
-        "name": "debug 340",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 480,
-        "y": 740,
-        "wires": []
     },
     {
         "id": "bc0cfc33f0f3b8b9",
@@ -99,12 +54,11 @@
         "server": "bf7704077a5c8955",
         "url": "/c",
         "x": 210,
-        "y": 460,
+        "y": 420,
         "wires": [
             [
-                "b1b82ee208ad7765",
                 "6f12986fae3b3481",
-                "5cdd39b842e3cf6d"
+                "dfb77f20966464d0"
             ]
         ]
     },
@@ -120,7 +74,7 @@
         "finalize": "",
         "libs": [],
         "x": 390,
-        "y": 520,
+        "y": 480,
         "wires": [
             [
                 "2b93134b0138ea8c"
@@ -135,26 +89,7 @@
         "protofile": "7c162e491502f623",
         "protoType": "ProtoConfig",
         "x": 560,
-        "y": 520,
-        "wires": [
-            [
-                "19a4677e7c71dffe"
-            ]
-        ]
-    },
-    {
-        "id": "19a4677e7c71dffe",
-        "type": "function",
-        "z": "1fe2b7c148e14405",
-        "name": "2.01",
-        "func": "msg.statusCode = \"2.01\"\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 730,
-        "y": 520,
+        "y": 480,
         "wires": [
             [
                 "44d1e01ddc48a646"
@@ -166,55 +101,11 @@
         "type": "coap response",
         "z": "1fe2b7c148e14405",
         "name": "Response",
-        "statusCode": "",
+        "statusCode": "2.01",
         "contentFormat": "text/plain",
-        "x": 880,
-        "y": 520,
+        "x": 740,
+        "y": 480,
         "wires": []
-    },
-    {
-        "id": "76f0592ae0ff82e9",
-        "type": "delay",
-        "z": "1fe2b7c148e14405",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "2",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 760,
-        "y": 460,
-        "wires": [
-            [
-                "6774353fce5a0ac9"
-            ]
-        ]
-    },
-    {
-        "id": "6774353fce5a0ac9",
-        "type": "function",
-        "z": "1fe2b7c148e14405",
-        "name": "site",
-        "func": "\nmsg.site = Buffer.from(msg.payload.serialNumber, 'base64').toString('hex').toUpperCase()\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 930,
-        "y": 460,
-        "wires": [
-            [
-                "348aadcbdfd34f82"
-            ]
-        ]
     },
     {
         "id": "f7b9579a5acfe988",
@@ -227,7 +118,7 @@
         "y": 240,
         "wires": [
             [
-                "c98e88a661fb4556"
+                "ad8424e2c87e5fea"
             ]
         ]
     },
@@ -243,74 +134,8 @@
         "y": 240,
         "wires": [
             [
-                "d787beb74ea019de",
                 "8ce7ef85ad0cd518",
-                "2d3d6b00d20a02f9"
-            ]
-        ]
-    },
-    {
-        "id": "d787beb74ea019de",
-        "type": "change",
-        "z": "1fe2b7c148e14405",
-        "name": "Payload",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "req.payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 240,
-        "wires": [
-            [
                 "f7b9579a5acfe988"
-            ]
-        ]
-    },
-    {
-        "id": "c98e88a661fb4556",
-        "type": "function",
-        "z": "1fe2b7c148e14405",
-        "name": "site",
-        "func": "\nmsg.site = Buffer.from(msg.payload.serial_num, 'base64').toString('hex').toUpperCase()\nmsg.topic = msg.site\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 730,
-        "y": 240,
-        "wires": [
-            [
-                "ad8424e2c87e5fea"
-            ]
-        ]
-    },
-    {
-        "id": "4a17107c0b0a2dff",
-        "type": "function",
-        "z": "1fe2b7c148e14405",
-        "name": "2.01",
-        "func": "msg.statusCode = \"2.01\"\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 750,
-        "y": 300,
-        "wires": [
-            [
-                "e16b056e1d1ef868"
             ]
         ]
     },
@@ -321,11 +146,11 @@
         "name": "Encode Config",
         "protofile": "7c162e491502f623",
         "protoType": "ProtoConfig",
-        "x": 580,
+        "x": 560,
         "y": 300,
         "wires": [
             [
-                "4a17107c0b0a2dff"
+                "e16b056e1d1ef868"
             ]
         ]
     },
@@ -334,9 +159,9 @@
         "type": "coap response",
         "z": "1fe2b7c148e14405",
         "name": "Response",
-        "statusCode": "",
+        "statusCode": "2.01",
         "contentFormat": "text/plain",
-        "x": 900,
+        "x": 760,
         "y": 300,
         "wires": []
     },
@@ -351,8 +176,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
-        "y": 340,
+        "x": 370,
+        "y": 300,
         "wires": [
             [
                 "70691b5a51234a3f"
@@ -370,8 +195,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
-        "y": 300,
+        "x": 370,
+        "y": 340,
         "wires": [
             [
                 "70691b5a51234a3f"
@@ -391,7 +216,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1070,
+        "x": 910,
         "y": 220,
         "wires": []
     },
@@ -403,76 +228,7 @@
         "protofile": "60f62a2343921943",
         "protoType": "ProtoDeviceInfo",
         "x": 560,
-        "y": 620,
-        "wires": [
-            [
-                "2e08c8cb94873b7e"
-            ]
-        ]
-    },
-    {
-        "id": "79ff77b2fead797a",
-        "type": "change",
-        "z": "1fe2b7c148e14405",
-        "name": "Payload",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "req.payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 620,
-        "wires": [
-            [
-                "bc4f194f3ec8d3b9"
-            ]
-        ]
-    },
-    {
-        "id": "2e08c8cb94873b7e",
-        "type": "switch",
-        "z": "1fe2b7c148e14405",
-        "name": "Not Empty",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "nempty"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 750,
-        "y": 620,
-        "wires": [
-            [
-                "af9f7c1375c7581d"
-            ]
-        ]
-    },
-    {
-        "id": "af9f7c1375c7581d",
-        "type": "function",
-        "z": "1fe2b7c148e14405",
-        "name": "site",
-        "func": "\nmsg.site = Buffer.from(msg.payload.serialNum, 'base64').toString('hex').toUpperCase()\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 890,
-        "y": 620,
+        "y": 580,
         "wires": [
             [
                 "36f626b67ea93050"
@@ -488,12 +244,11 @@
         "server": "bf7704077a5c8955",
         "url": "/i",
         "x": 210,
-        "y": 620,
+        "y": 580,
         "wires": [
             [
-                "79ff77b2fead797a",
                 "09a9b9f19956179f",
-                "915013240e498323"
+                "bc4f194f3ec8d3b9"
             ]
         ]
     },
@@ -502,13 +257,13 @@
         "type": "function",
         "z": "1fe2b7c148e14405",
         "name": "Efento",
-        "func": "var value\nvar metadata\nvar start_point\nvar channelNumber\nvar measurement_record = [];\nvar channels_record = [];\nvar changeAt = []\nvar measurementPeriod = msg.payload.measurement_period_base * msg.payload.measurement_period_factor;\nvar site = msg.site\nvar transfer_reason = msg.payload.transfer_reason\nvar channelNumberForAcc = 0\n\n\nfor (var param of msg.payload.channels) {\n    if (Object.keys(param).length) {\n        if (param.type === 'MEASUREMENT_TYPE_OK_ALARM') {\n            var numberOfMeasurements = (1 + (Math.abs(param.sample_offsets[param.sample_offsets.length - 1]) - 1) / measurementPeriod);\n            for (let sampleOffset of param.sample_offsets) {\n                let timeDifference = measurementPeriod * parseInt(Math.floor(Math.abs(sampleOffset - 1) / measurementPeriod));\n                if (sampleOffset > 0) {\n                    changeAt.push(String(param.timestamp + timeDifference), \"1\");\n                    value = \"1\"\n                } else if (sampleOffset < 1) {\n                    changeAt.push(String(param.timestamp + timeDifference), \"0\")\n                    value = \"0\"\n                }\n            }\n            for (let measurementNumber = 0; measurementNumber < numberOfMeasurements; measurementNumber++) {\n                let timeDifference = measurementPeriod * measurementNumber;\n                let measurementtime = String(param.timestamp + timeDifference)\n                if (changeAt.includes(measurementtime)) {\n                    value = changeAt[changeAt.indexOf(measurementtime) + 1];\n                }\n                measurement_record.push(\n                    {\n                        measured_at: param.timestamp + timeDifference,\n                        serial_number: Buffer.from(msg.payload.serial_num, 'base64').toString('hex').toUpperCase(),\n                        battery_ok: msg.payload.battery_status,\n                        type: param.type.replace(\"MEASUREMENT_TYPE_\", \"\"),\n                        value\n                    }\n                );\n            }\n        }\n        else if (['MEASUREMENT_TYPE_PULSE_CNT_ACC_MAJOR', 'MEASUREMENT_TYPE_WATER_METER_ACC_MAJOR', 'MEASUREMENT_TYPE_ELEC_METER_ACC_MAJOR'].indexOf(param.type) >= 0) {\n            var majorValues = []\n            var calibrationRequired = []\n            for (let index = 0; index < param.sample_offsets.length; index++) {\n                if ([\"MEASUREMENT_TYPE_PULSE_CNT_ACC_MAJOR\", \"MEASUREMENT_TYPE_WATER_METER_ACC_MAJOR\"].indexOf(param.type) >= 0) {\n                    if (typeof param.start_point === 'undefined') {\n                        start_point = 0\n                    }\n                    else {\n                        start_point = param.start_point\n                    }\n                    metadata = ((start_point + param.sample_offsets[index]) % 4)\n                    value = Math.floor(((start_point - metadata + param.sample_offsets[index]) / 4) * 1000)\n                }\n                else {\n                    metadata = ((start_point + param.sample_offsets[index]) % 4)\n                    value = Math.floor(((start_point - metadata + param.sample_offsets[index]) / 4) * 100)\n\n                }\n                if (metadata != 0) {\n                    calibrationRequired.push(true)\n                }\n                else {\n                    calibrationRequired.push(false)\n                }\n                majorValues.push(value)\n            }\n        }\n\n        else if ([\"MEASUREMENT_TYPE_PULSE_CNT_ACC_MINOR\", \"MEASUREMENT_TYPE_WATER_METER_ACC_MINOR\", \"MEASUREMENT_TYPE_ELEC_METER_ACC_MINOR\"].indexOf(param.type) >= 0) {\n            channelNumberForAcc = channelNumberForAcc + 1\n\n            for (let index = 0; index < param.sample_offsets.length; index++) {\n\n                if (typeof param.start_point === 'undefined') {\n                    start_point = 0\n                }\n                else {\n                    start_point = param.start_point\n                }\n\n                if (calibrationRequired[index]) {\n\n                    value = (majorValues[index] + Math.floor(\n                        //dividing by 1000 to get mills of rain\n                        (start_point + param.sample_offsets[index]) / 6)) / 1000\n                    var calibration = true\n                }\n                else {\n                    //dividing by 1000 to get mills of rain\n                    value = (majorValues[index] + (start_point + param.sample_offsets[index]) / 6) / 1000\n\n                }\n                var timeDifference = measurementPeriod * index\n                var measured_at = param.timestamp + timeDifference\n                var midnight = ((new Date(new Date().setHours(0, 0, 0, 0))).valueOf()) / 1000\n                var type = param.type.replace(\"MEASUREMENT_TYPE_\", \"\").replace(\"_MINOR\", \"\") + \"_\" + channelNumberForAcc\n                //only using PULSE Channel 1\n                if (type == \"PULSE_CNT_ACC_1\") {\n                    if (value != 0 || measured_at === midnight) {\n                        channels_record.push(\n                            {\n                                measured_at,\n                                serial_number: Buffer.from(msg.payload.serial_num, 'base64').toString('hex').toUpperCase(),\n                                battery_ok: msg.payload.battery_status,\n                                transfer_reason,\n                                metadata,\n                                type,\n                                value,\n                            }\n                        );\n                    }\n                }\n            }\n        }\n        else if ([\"MEASUREMENT_TYPE_VOLTAGE\", \"MEASUREMENT_TYPE_CURRENT\"].indexOf(param.type) >= 0) {\n            channelNumberForAcc = channelNumberForAcc + 1\n            for (let index = 0; index < param.sample_offsets.length; index++) {\n                if (typeof param.start_point === 'undefined') {\n                    start_point = 0\n                }\n                else {\n                    start_point = param.start_point\n                }\n                value = start_point + param.sample_offsets[index];\n                \n                var timeDifference = measurementPeriod * index\n                var measured_at = param.timestamp + timeDifference\n                var type = param.type.replace(\"MEASUREMENT_TYPE_\", \"\") + \"_\" + channelNumberForAcc\n\n                channels_record.push(\n                    {\n                        measured_at,\n                        serial_number: Buffer.from(msg.payload.serial_num, 'base64').toString('hex').toUpperCase(),\n                        battery_ok: msg.payload.battery_status,\n                        transfer_reason,\n                        metadata,\n                        type,\n                        value,\n                    }\n                );\n            }\n        }\n        else {\n            for (let index = 0; index < param.sample_offsets.length; index++) {\n                if (typeof param.start_point === 'undefined') {\n                    start_point = 0\n                }\n                else {\n                    start_point = param.start_point\n                }\n                if ([\"MEASUREMENT_TYPE_TEMPERATURE\", \"MEASUREMENT_TYPE_ATMOSPHERIC_PRESSURE\"].indexOf(param.type) >= 0) {\n                    value = (start_point + param.sample_offsets[index]) / 10;\n                }\n                else {\n                    value = start_point + param.sample_offsets[index];\n                }\n                const timeDifference = measurementPeriod * index\n                measurement_record.push(\n                    {\n                        measured_at: param.timestamp + timeDifference,\n                        serial_number: Buffer.from(msg.payload.serial_num, 'base64').toString('hex').toUpperCase(),\n                        battery_ok: msg.payload.battery_status,\n                        type: param.type.replace(\"MEASUREMENT_TYPE_\", \"\"),\n                        value,\n                    }\n                );\n            }\n        }\n    }\n}\n\nlet channels_records = channels_record.reduce((acc, elem) => {\n    acc[elem.type] = (acc[elem.type] || []).concat([elem])\n    // (acc[elem.measured_at] ??= []).push(elem);\n    // following may be used instead of the above line\n    // acc[elem.date] = (acc[elem.date] || []).concat([elem])\n    return acc;\n}, {});\n\nif (Object.keys(channels_records).length) {\n    var pulse_payload = {\n        site,\n        payload: channels_records\n    }\n}\nif (Object.keys(measurement_record).length) {\n    var mearurement_payload = {\n        site,\n        payload: measurement_record\n    }\n}\n\nreturn [pulse_payload, mearurement_payload];\n\n",
+        "func": "var value\nvar metadata\nvar start_point\nvar channelNumber\nvar measurement_record = [];\nvar channels_record = [];\nvar changeAt = []\nvar measurementPeriod = msg.payload.measurement_period_base * msg.payload.measurement_period_factor;\nvar transfer_reason = msg.payload.transfer_reason\nvar channelNumberForAcc = 0\n\n\nfor (var param of msg.payload.channels) {\n    if (Object.keys(param).length) {\n        if (param.type === 'MEASUREMENT_TYPE_OK_ALARM') {\n            var numberOfMeasurements = (1 + (Math.abs(param.sample_offsets[param.sample_offsets.length - 1]) - 1) / measurementPeriod);\n            for (let sampleOffset of param.sample_offsets) {\n                let timeDifference = measurementPeriod * parseInt(Math.floor(Math.abs(sampleOffset - 1) / measurementPeriod));\n                if (sampleOffset > 0) {\n                    changeAt.push(String(param.timestamp + timeDifference), \"1\");\n                    value = \"1\"\n                } else if (sampleOffset < 1) {\n                    changeAt.push(String(param.timestamp + timeDifference), \"0\")\n                    value = \"0\"\n                }\n            }\n            for (let measurementNumber = 0; measurementNumber < numberOfMeasurements; measurementNumber++) {\n                let timeDifference = measurementPeriod * measurementNumber;\n                let measurementtime = String(param.timestamp + timeDifference)\n                if (changeAt.includes(measurementtime)) {\n                    value = changeAt[changeAt.indexOf(measurementtime) + 1];\n                }\n                measurement_record.push(\n                    {\n                        measured_at: param.timestamp + timeDifference,\n                        serial_number: Buffer.from(msg.payload.serial_num, 'base64').toString('hex').toUpperCase(),\n                        battery_ok: msg.payload.battery_status,\n                        type: param.type.replace(\"MEASUREMENT_TYPE_\", \"\"),\n                        value\n                    }\n                );\n            }\n        }\n        else if (['MEASUREMENT_TYPE_PULSE_CNT_ACC_MAJOR', 'MEASUREMENT_TYPE_WATER_METER_ACC_MAJOR', 'MEASUREMENT_TYPE_ELEC_METER_ACC_MAJOR'].indexOf(param.type) >= 0) {\n            var majorValues = []\n            var calibrationRequired = []\n            for (let index = 0; index < param.sample_offsets.length; index++) {\n                if ([\"MEASUREMENT_TYPE_PULSE_CNT_ACC_MAJOR\", \"MEASUREMENT_TYPE_WATER_METER_ACC_MAJOR\"].indexOf(param.type) >= 0) {\n                    if (typeof param.start_point === 'undefined') {\n                        start_point = 0\n                    }\n                    else {\n                        start_point = param.start_point\n                    }\n                    metadata = ((start_point + param.sample_offsets[index]) % 4)\n                    value = Math.floor(((start_point - metadata + param.sample_offsets[index]) / 4) * 1000)\n                }\n                else {\n                    metadata = ((start_point + param.sample_offsets[index]) % 4)\n                    value = Math.floor(((start_point - metadata + param.sample_offsets[index]) / 4) * 100)\n\n                }\n                if (metadata != 0) {\n                    calibrationRequired.push(true)\n                }\n                else {\n                    calibrationRequired.push(false)\n                }\n                majorValues.push(value)\n            }\n        }\n\n        else if ([\"MEASUREMENT_TYPE_PULSE_CNT_ACC_MINOR\", \"MEASUREMENT_TYPE_WATER_METER_ACC_MINOR\", \"MEASUREMENT_TYPE_ELEC_METER_ACC_MINOR\"].indexOf(param.type) >= 0) {\n            channelNumberForAcc = channelNumberForAcc + 1\n\n            for (let index = 0; index < param.sample_offsets.length; index++) {\n\n                if (typeof param.start_point === 'undefined') {\n                    start_point = 0\n                }\n                else {\n                    start_point = param.start_point\n                }\n\n                if (calibrationRequired[index]) {\n\n                    value = (majorValues[index] + Math.floor(\n                        //dividing by 1000 to get mills of rain\n                        (start_point + param.sample_offsets[index]) / 6)) / 1000\n                    var calibration = true\n                }\n                else {\n                    //dividing by 1000 to get mills of rain\n                    value = (majorValues[index] + (start_point + param.sample_offsets[index]) / 6) / 1000\n\n                }\n                var timeDifference = measurementPeriod * index\n                var measured_at = param.timestamp + timeDifference\n                var type = param.type.replace(\"MEASUREMENT_TYPE_\", \"\").replace(\"_MINOR\", \"\") + \"_\" + channelNumberForAcc\n                channels_record.push(\n                    {\n                        measured_at,\n                        serial_number: Buffer.from(msg.payload.serial_num, 'base64').toString('hex').toUpperCase(),\n                        battery_ok: msg.payload.battery_status,\n                        transfer_reason,\n                        metadata,\n                        type,\n                        value,\n                    }\n                );   \n            }\n        }\n        else if ([\"MEASUREMENT_TYPE_VOLTAGE\", \"MEASUREMENT_TYPE_CURRENT\"].indexOf(param.type) >= 0) {\n            channelNumberForAcc = channelNumberForAcc + 1\n            for (let index = 0; index < param.sample_offsets.length; index++) {\n                if (typeof param.start_point === 'undefined') {\n                    start_point = 0\n                }\n                else {\n                    start_point = param.start_point\n                }\n                value = start_point + param.sample_offsets[index];\n                \n                var timeDifference = measurementPeriod * index\n                var measured_at = param.timestamp + timeDifference\n                var type = param.type.replace(\"MEASUREMENT_TYPE_\", \"\") + \"_\" + channelNumberForAcc\n\n                channels_record.push(\n                    {\n                        measured_at,\n                        serial_number: Buffer.from(msg.payload.serial_num, 'base64').toString('hex').toUpperCase(),\n                        battery_ok: msg.payload.battery_status,\n                        transfer_reason,\n                        type,\n                        value,\n                    }\n                );\n            }\n        }\n        else {\n            for (let index = 0; index < param.sample_offsets.length; index++) {\n                if (typeof param.start_point === 'undefined') {\n                    start_point = 0\n                }\n                else {\n                    start_point = param.start_point\n                }\n                if ([\"MEASUREMENT_TYPE_TEMPERATURE\", \"MEASUREMENT_TYPE_ATMOSPHERIC_PRESSURE\"].indexOf(param.type) >= 0) {\n                    value = (start_point + param.sample_offsets[index]) / 10;\n                }\n                else {\n                    value = start_point + param.sample_offsets[index];\n                }\n                const timeDifference = measurementPeriod * index\n                measurement_record.push(\n                    {\n                        measured_at: param.timestamp + timeDifference,\n                        serial_number: Buffer.from(msg.payload.serial_num, 'base64').toString('hex').toUpperCase(),\n                        battery_ok: msg.payload.battery_status,\n                        transfer_reason,\n                        type: param.type.replace(\"MEASUREMENT_TYPE_\", \"\"),\n                        value,\n                    }\n                );\n            }\n        }\n    }\n}\n\nlet channels_records = channels_record.reduce((acc, elem) => {\n    acc[elem.type] = (acc[elem.type] || []).concat([elem])\n    // (acc[elem.measured_at] ??= []).push(elem);\n    // following may be used instead of the above line\n    // acc[elem.date] = (acc[elem.date] || []).concat([elem])\n    return acc;\n}, {});\n\nif (Object.keys(channels_records).length) {\n    var pulse_payload = {\n        payload: channels_records\n    }\n}\nif (Object.keys(measurement_record).length) {\n    var mearurement_payload = {\n        payload: measurement_record\n    }\n}\n\nreturn [pulse_payload, mearurement_payload];\n\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 870,
+        "x": 750,
         "y": 240,
         "wires": [
             [
@@ -540,7 +295,7 @@
         "repair": false,
         "outputs": 1,
         "x": 390,
-        "y": 680,
+        "y": 640,
         "wires": [
             [
                 "7743b1f303f96bd8"
@@ -559,7 +314,7 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 680,
+        "y": 640,
         "wires": [
             [
                 "b0a852933f64f5c3"
@@ -574,26 +329,7 @@
         "protofile": "7c162e491502f623",
         "protoType": "ProtoConfig",
         "x": 720,
-        "y": 680,
-        "wires": [
-            [
-                "9aa05af6a3063ce5"
-            ]
-        ]
-    },
-    {
-        "id": "9aa05af6a3063ce5",
-        "type": "function",
-        "z": "1fe2b7c148e14405",
-        "name": "2.01",
-        "func": "msg.statusCode = \"2.01\"\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 890,
-        "y": 680,
+        "y": 640,
         "wires": [
             [
                 "81f36e51f3315496"
@@ -605,10 +341,10 @@
         "type": "coap response",
         "z": "1fe2b7c148e14405",
         "name": "Response",
-        "statusCode": "",
+        "statusCode": "2.01",
         "contentFormat": "text/plain",
-        "x": 1040,
-        "y": 680,
+        "x": 900,
+        "y": 640,
         "wires": []
     },
     {
@@ -624,42 +360,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1070,
+        "x": 910,
         "y": 260,
-        "wires": []
-    },
-    {
-        "id": "2d3d6b00d20a02f9",
-        "type": "debug",
-        "z": "1fe2b7c148e14405",
-        "name": "debug 343",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 390,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "5cdd39b842e3cf6d",
-        "type": "debug",
-        "z": "1fe2b7c148e14405",
-        "name": "debug 344",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 390,
-        "y": 420,
         "wires": []
     },
     {
@@ -675,24 +377,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1050,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "915013240e498323",
-        "type": "debug",
-        "z": "1fe2b7c148e14405",
-        "name": "debug 346",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 390,
+        "x": 730,
         "y": 580,
         "wires": []
     },
